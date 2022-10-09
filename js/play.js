@@ -23,11 +23,21 @@ const person = {
   },
 };
 
+const copiedPerson = { ...person };
+console.log(copiedPerson, '객체');
+
 const hobbies = ['Sports', 'Cooking'];
 // for (let hobby of hobbies) {
 //   console.log(hobby);
 // }
 // console.log(hobbies.map((hobbies) => 'hobby: ' + hobbies));
 // console.log(hobbies);
-hobbies.push('Programming');
-console.log(hobbies);
+// hobbies.push('Programming');
+const copiedArray = [...hobbies];
+console.log(hobbies, '원본배열');
+console.log(copiedArray, '복사배열');
+
+const toArray = (...args) => {
+  return args;
+};
+console.log(toArray(1, 2, 3, 4));
