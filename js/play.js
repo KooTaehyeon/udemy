@@ -28,7 +28,7 @@ const copiedPerson = { ...person };
 
 const hobbies = ['Sports', 'Cooking'];
 const [hobby1, hobby2] = hobbies;
-console.log(hobby1, hobby2);
+//console.log(hobby1, hobby2);
 // for (let hobby of hobbies) {
 //   console.log(hobby);
 // }
@@ -49,4 +49,27 @@ const printName = ({ name1, age1 }) => {
 };
 // printName(person);
 const { name1, age1 } = person;
-console.log(name1, age1);
+//console.log(name1, age1);
+
+const fetchData = () => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Done!');
+    }, 2000);
+  });
+  return promise;
+};
+
+setTimeout(() => {
+  console.log('timer is done');
+  fetchData()
+    .then((text) => {
+      console.log(text);
+      return fetchData();
+    })
+    .then((text2) => {
+      console.log(text2);
+    });
+}, 2000);
+console.log('hello');
+console.log('hi');
