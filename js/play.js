@@ -24,9 +24,11 @@ const person = {
 };
 
 const copiedPerson = { ...person };
-console.log(copiedPerson, '객체');
+//console.log(copiedPerson, '객체');
 
 const hobbies = ['Sports', 'Cooking'];
+const [hobby1, hobby2] = hobbies;
+console.log(hobby1, hobby2);
 // for (let hobby of hobbies) {
 //   console.log(hobby);
 // }
@@ -34,10 +36,17 @@ const hobbies = ['Sports', 'Cooking'];
 // console.log(hobbies);
 // hobbies.push('Programming');
 const copiedArray = [...hobbies];
-console.log(hobbies, '원본배열');
-console.log(copiedArray, '복사배열');
+// console.log(hobbies, '원본배열');
+// console.log(copiedArray, '복사배열');
 
 const toArray = (...args) => {
   return args;
 };
-console.log(toArray(1, 2, 3, 4));
+// console.log(toArray(1, 2, 3, 4));
+
+const printName = ({ name1, age1 }) => {
+  console.log(name1, age1);
+};
+// printName(person);
+const { name1, age1 } = person;
+console.log(name1, age1);
