@@ -15,5 +15,12 @@ const summarzeUser = (userName, userAge, userHashobbies) => {
 };
 const add = (a) => a + 3;
 
-console.log(add(2));
-console.log(summarzeUser(name, age, hasHobbies));
+const person = {
+  name1: name,
+  age1: age,
+  greet() {
+    console.log('hi, i am' + this.name1);
+  },
+};
+
+person.greet();
