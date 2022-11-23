@@ -19,8 +19,13 @@ exports.postAddProduct = (req, res, next) => {
     imageUrl: imageUrl,
     description: description,
   })
-    .then((result) => console.log(result, '성공'))
-    .catch((err) => console.log(err, '실패'));
+    .then((result) => {
+      // console.log(result);
+      console.log('Created Product');
+    })
+    .catch((err) => {
+      console.log(err, '실패');
+    });
 };
 
 exports.getEditProduct = (req, res, next) => {
@@ -60,13 +65,15 @@ exports.postEditProduct = (req, res, next) => {
 };
 
 exports.getProducts = (req, res, next) => {
-  Product.fetchAll((products) => {
-    res.render('admin/products', {
-      prods: products,
-      pageTitle: 'Admin Products',
-      path: '/admin/products',
-    });
-  });
+  Product.findAll()
+    .then((products) => {
+      res.render('admin/products', {
+        prods: products,
+        pageTitle: 'Admin Products',
+        path: '/admin/products',
+      });
+    })
+    .catch((err) => console.log(err));
 };
 
 exports.postDeleteProduct = (req, res, next) => {
